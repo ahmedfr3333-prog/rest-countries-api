@@ -98,37 +98,23 @@ function setupSearch() {
 /**
  * 6. Dark Mode Logic: Toggles between Light and Dark themes.
  */
-
 function setupDarkMode() {
     const modeBtn = document.getElementById("mode");
     const icon = document.querySelector(".switchmode i");
 
-    // 1. تحقق من الحالة المحفوظة فور تحميل الصفحة
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        updateUI(true); // دالة مساعدة لتحديث شكل الزر
-    }
-
     modeBtn.addEventListener("click", () => {
         const isDarkMode = document.body.classList.toggle("dark-mode");
 
-        // 2. حفظ الحالة الجديدة في localStorage
-        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-
-        updateUI(isDarkMode);
-    });
-
-    // دالة داخلية لتحديث النص والأيقونة منعاً للتكرار
-    function updateUI(isDarkMode) {
+        // Update Button Text and Icon Classes
         modeBtn.innerText = isDarkMode ? "Light Mode" : "Dark Mode";
         if (isDarkMode) {
             icon.classList.replace("fa-regular", "fa-solid");
         } else {
             icon.classList.replace("fa-solid", "fa-regular");
         }
-    }
+    });
 }
+
 /**
  * Application Entry Point: Initializes data fetching and event listeners.
  */

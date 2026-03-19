@@ -2,9 +2,6 @@
  * 1. URL Parameter Parsing:
  * Extract the country name from the URL string (e.g., details.html?name=Germany).
  */
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-}
 const params = new URLSearchParams(window.location.search);
 const countryName = params.get("name");
 
