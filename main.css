@@ -1,0 +1,199 @@
+/* --- 1. Global Variables & Design Tokens --- */
+:root {
+    /* Light Mode Colors */
+    --bg-color: hsl(0, 0%, 98%);
+    --text-color: hsl(200, 15%, 8%);
+    --element-bg: hsl(0, 100%, 100%);
+    --input-color: hsl(0, 0%, 52%);
+    
+    /* Typography Settings */
+    --font-family: 'Nunito Sans', sans-serif;
+    --fw-light: 300;
+    --fw-semi-bold: 600;
+    --fw-extra-bold: 800;
+    --fs-body: 14px;
+    --fs-detail: 16px;
+
+    /* Visual Effects */
+    --shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 2. Dark Mode Overrides --- */
+body.dark-mode {
+    --bg-color: hsl(207, 26%, 17%);
+    --text-color: hsl(0, 100%, 100%);
+    --element-bg: hsl(209, 23%, 22%);
+}
+
+/* --- 3. Base Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-light);
+    transition: all 0.3s ease;
+}
+
+/* --- 4. Header & Navigation --- */
+header {
+    margin-bottom: 10px;
+}
+
+.BAR {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%; /* Flexible padding for better scaling */
+    height: 100px;
+    background-color: var(--element-bg);
+    font-weight: var(--fw-semi-bold);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.pBAR {
+    font-size: 1.2rem;
+}
+
+.switchmode, #mode {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+    font-weight: var(--fw-semi-bold);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- 5. Search & Filter Controls --- */
+.input1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+    margin: 20px auto;
+    max-width: 480px;
+    width: 90%;
+    height: 50px;
+    background-color: var(--element-bg);
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+}
+
+.search {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-color);
+    font-family: inherit;
+    width: 100%;
+}
+
+.filter-div {
+    display: flex;
+    width: 90%;
+    margin: 20px auto;
+    justify-content: flex-start;
+}
+
+#region {
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    padding: 0 15px;
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+/* --- 6. Main Content Grid & Cards --- */
+main {
+    margin: 30px auto;
+    max-width: 1440px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile-first: 1 column */
+    gap: 40px;
+}
+
+.card_one {
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--element-bg);
+    padding-bottom: 40px;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    justify-self: center;
+    transition: transform 0.2s ease;
+}
+
+.card_one:hover {
+    transform: translateY(-5px);
+}
+
+.COimg {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.COname {
+    font-weight: var(--fw-extra-bold);
+    margin: 20px 25px 10px 25px;
+    font-size: 18px;
+}
+
+.COimg ~ p {
+    margin: 5px 25px;
+    font-size: 14px;
+}
+
+.bold {
+    font-weight: var(--fw-semi-bold);
+}
+
+/* --- 7. Responsive Layouts --- */
+
+/* Tablet View */
+@media (min-width: 600px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .filter-div {
+        justify-content: space-between;
+    }
+}
+
+/* Desktop View (3 Columns) */
+@media (min-width: 992px) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .filter-div {
+        margin-top: 40px;
+    }
+}
+
+/* Large Desktop View (4 Columns) */
+@media (min-width: 1200px) {
+    main {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

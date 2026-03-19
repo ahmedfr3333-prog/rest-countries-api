@@ -1,0 +1,199 @@
+/* --- 1. Global Variables & Design Tokens --- */
+:root {
+    /* Light Mode Palette */
+    --bg-color: hsl(0, 0%, 99%);
+    --text-color: hsl(200, 15%, 8%);
+    --element-bg: hsl(0, 100%, 100%);
+    --input-color: hsl(0, 0%, 50%);
+    
+    /* Typography Settings */
+    --font-family: 'Nunito Sans', sans-serif;
+    --fw-light: 300;
+    --fw-semi-bold: 600;
+    --fw-extra-bold: 800;
+    --fs-body: 14px;
+    --fs-detail: 16px;
+
+    /* Visual Effects */
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- 2. Dark Mode Overrides --- */
+body.dark-mode {
+    --bg-color: hsl(207, 26%, 17%);
+    --text-color: hsl(0, 100%, 100%);
+    --element-bg: hsl(209, 23%, 22%);
+}
+
+/* --- 3. Base Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--fs-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- 4. Navigation Bar --- */
+.BAR {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 100px;
+    background-color: var(--element-bg);
+    font-weight: var(--fw-semi-bold);
+    box-shadow: var(--shadow);
+}
+
+.pBAR {
+    font-size: 1.2rem;
+}
+
+/* --- 5. Buttons & Interactive Elements --- */
+.switchmode, #mode {
+    cursor: pointer;
+    font-weight: var(--fw-semi-bold);
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#back1 {
+    border: none;
+    padding: 10px 30px;
+    margin: 40px 0 60px 5%;
+    font-size: var(--fs-detail);
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- 6. Country Details Layout --- */
+#container {
+    padding: 0 5%;
+    margin-bottom: 40px;
+}
+
+.details-card {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.COimg {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    display: block;
+}
+
+.name {
+    font-weight: var(--fw-extra-bold);
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.COname {
+    font-weight: var(--fw-semi-bold);
+}
+
+.stats-grid p {
+    margin: 12px 0;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- 7. Border Countries Section --- */
+.border-section {
+    margin-top: 40px;
+}
+
+#borders-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.countrydiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--element-bg);
+    padding: 6px 20px;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    min-width: 90px;
+    text-align: center;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+.countrydiv:hover {
+    transform: scale(1.05);
+}
+
+/* --- 8. Responsive Design (Media Queries) --- */
+
+/* Tablets & Small Desktops */
+@media (min-width: 768px) {
+    .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+/* Desktop Large Screens */
+@media (min-width: 1024px) {
+    .details-card {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 80px;
+        margin-top: 50px;
+    }
+
+    .COimg {
+        width: 45%;
+    }
+
+    .info-wrapper {
+        width: 50%;
+    }
+
+    .name {
+        font-size: 32px;
+    }
+
+    .border-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+}

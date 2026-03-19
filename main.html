@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST Countries API - Frontend Challenge</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="head">
+        <nav class="BAR">
+            <h1 class="pBAR">Where in the world?</h1>
+            <div class="switchmode" id="theme-toggle"> 
+                <i class="fa-regular fa-moon"></i>
+                <button id="mode">Dark Mode</button>
+            </div>
+        </nav>
+        
+        <div class="controls-container">
+            <div class="input1">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="search" placeholder="Search for a country..." aria-label="Search for a country">
+            </div>
+
+            <div class="filter-div">
+                <select id="region" aria-label="Filter by region">
+                    <option value="" disabled selected>Filter by Region</option>
+                    <option value="Africa">Africa</option>
+                    <option value="America">Americas</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    
+    <main id="countries-container" class="grid-container">
+        </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
