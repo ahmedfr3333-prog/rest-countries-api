@@ -19,7 +19,7 @@
 }
 
 /* --- 2. Dark Mode Overrides --- */
-body.dark-mode {
+:where(html.dark-mode, body.dark-mode) {
     --bg-color: hsl(207, 26%, 17%);
     --text-color: hsl(0, 100%, 100%);
     --element-bg: hsl(209, 23%, 22%);
@@ -40,7 +40,7 @@ body {
     font-family: var(--font-family);
     font-size: var(--fs-body);
     font-weight: var(--fw-light);
-    transition: all 0.3s ease;
+   
 }
 
 /* --- 4. Header & Navigation --- */
